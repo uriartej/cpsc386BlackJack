@@ -5,13 +5,13 @@
 
 
 import random
-from collections import nametuple
+from collections import namedtuple
 
 Card = namedtuple("Card", ["rank", "suit"])
 
 
 class Deck:
-	def __int__(self):
+	def __init__(self):
 		self.cards = []
 		ranks = [str(num) for num in range(2, 11)] + ["J", "Q", "K", "A"]
 		suits = ["Clubs", "Hearts", "Spades", "Diamonds"]
@@ -23,6 +23,5 @@ class Deck:
 def shuffle(self):
 	random.shuffle(self.cards)
 
-def deal_card(self):
-	return self.cards.pop()
-
+def draw_card(self):
+	return self.cards.pop(0)
