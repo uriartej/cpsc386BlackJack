@@ -20,8 +20,8 @@ class Deck:
 			for suit in suits:
 				self.cards.append(Card(rank, suit))
 
-def shuffle(self):
-	random.shuffle(self.cards)
+	def shuffle(self):
+		random.shuffle(self.cards)
 
-def draw_card(self):
-	return self.cards.pop(0)
+	def draw_card(self):
+		return self.cards.pop()
