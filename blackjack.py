@@ -6,6 +6,7 @@
 import time
 from blackjackgame.game import BlackjackGame
 
+
 def main():
     game = BlackjackGame()
     game.play_game()
