@@ -57,7 +57,8 @@ class BlackjackGame:
             player.receive_card(card)
 
     def play_player_turn(self, player):
-        print(f"\n{player.name}'s turn:")
+        print(f"\nPlayer's turn:")
+        card_number = 1
         while True:
             print(player)
             choice = input("Do you want to hit? (y/n): ")
@@ -65,12 +66,17 @@ class BlackjackGame:
                 card = self.deck.draw_card()
                 player.receive_card(card)
                 if player.get_hand_value() > 21:
-                    print(f"\n{player.name} busted!")
+                    print(f"\nCard {card_number}: {card.rank} of {card.suit}")
+                    print(f"Player busted!")
                     break
+                else:
+                    print(f"\nCard {card_number}: {card.rank} of {card.suit}")
+                    card_number += 1
             elif choice.lower() == 'n':
                 break
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
+
 
     def play_dealer_turn(self):
         print("\nDealer's turn:")
@@ -116,7 +122,8 @@ class BlackjackGame:
 
     def reset_game(self):
         for player in self.players:
-            player.reset()
+            player.clear_hand()
+        self.deck = Deck()
 
     def end_game(self):
         print("Game Over")
